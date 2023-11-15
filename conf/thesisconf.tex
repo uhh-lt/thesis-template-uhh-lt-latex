@@ -1,0 +1,124 @@
+% !TEX root = ../main.tex
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatexmk
+% !TEX spellcheck = en-US
+% !BIB program = biber
+
+\usepackage[ngerman,main=english]{babel}
+
+\usepackage[utf8]{inputenc}
+\input{conf/font-conf}
+
+
+%%%%% SELECT YOUR DRAFT OPTIONS
+%\degreedate{April, 2023}
+%\degreedate{~}
+\degreedate{\emph{DRAFT Printed on \today}}
+
+% Footer
+\fancyfoot[C]{\emph{DRAFT Printed on \today}}
+
+% use corrections as delta highlighting mechanism (see ociamthesis)
+% This highlights (in blue) corrections marked with (for words) \mccorrect{blah} or (for whole
+% paragraphs) \begin{mccorrection} . . . \end{mccorrection}.
+%\correctionstrue
+
+% BIBLIOGRAPHY resources
+\addbibresource{./bib/biblio-clean.bib}
+%\addbibresource{./bib/biblio-temp.bib}
+
+% Uncomment this if you want equation numbers per section (2.3.12), instead of per chapter (2.18):
+%\numberwithin{equation}{subsection}
+
+%%%%% THESIS / TITLE PAGE INFORMATION
+\newcommand{\mytitle}{Fancy \\ Thesis \\ Title}
+\title{\mytitle}
+
+% title without line breaks
+\newcommand{\mytitleplain}{Fancy Thesis Title}
+\titleplain{\mytitleplain}
+
+% authorname
+\newcommand{\authorname}{Allan M. Turing}
+
+\dateofsubmission{1.1.2099}
+\dateofdisputation{ 2.1.2099 }
+\typeofthesis{Dissertation}
+\supervisorname{Prof.\ Dr.\ Chris Biemann, Universität Hamburg}
+\comittee{%
+  \begin{tabular}{@{}l@{~~}l@{~}l@{~}l@{}}%
+    & 1\textsuperscript{st} & Reviewer: & Prof.\ Dr.\ Chris Biemann, Universität Hamburg \\%
+    & 2\textsuperscript{nd} & Reviewer: & Prof.\ Dr.\ Konrad Zuse, Universität Hamburg \\%
+    & \multicolumn{2}{@{}r@{~}}{Chair:} & Prof.\ Dr.\ Albert Einstein, Universität Hamburg %
+\end{tabular}%
+}%
+\university{Universit\"a{}t Hamburg\\Hamburg, Germany}%
+\address{Hamburg, Germany}%
+\faculty{Faculty of Mathematics, Informatics and Natural Sciences}
+\department{Department of Informatics}
+\researchgroup{Language Technology}
+\universitylogo{%
+\begin{minipage}{\textwidth}%
+ \centering%
+ \includegraphics[width=.7\textwidth]{figures/up-uhh-logo-u-2010-u-farbe-u-cmyk-modus}%
+ \end{minipage}%
+}%
+
+% Your full degree name.  (But remember that DPhils aren't "in" anything.  They're just DPhils.)
+\degree{Doctor rerum naturalium (Dr.\ rer.\ nat.)}
+
+% set title and author
+\author{\authorname}
+
+%%%%% PDF METADATA
+\hypersetup{%
+  pdftitle={\mytitleplain},%
+  pdfauthor={\authorname},%
+  pdfsubject={\mytitleplain},%
+  pdfview=FitH,%
+  pdfstartview=FitV,%
+  pdfproducer={\authorname},%
+  pdfcreator=\textsc{LaTeX},%
+	colorlinks=true,% remove boxes for links
+	citecolor=black,%
+	linkcolor=LimeGreen,% black % make all colors black for the final submission
+	anchorcolor=LimeGreen,% black %
+	filecolor=LimeGreen,% black %
+	runcolor=LimeGreen,% black %
+	urlcolor=LimeGreen,% black %
+	menucolor=LimeGreen,% black %
+}%
+
+%%%%% MORE MACROS
+\usepackage{makeidx}
+\usepackage{placeins}
+\usepackage[labelfont={footnotesize,up,tt}]{subcaption} % subrefformat=parens,
+\usepackage{kantlipsum}
+\usepackage{lipsum}
+\usepackage{url}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}%[section]
+
+%%%%% MORE COMMANDS, REDEFINES, ENVIRONMENTS, ...
+
+% define hangindent for listitems
+\newlength\listindent
+\setlength\listindent{13pt}
+\newcommand{\hangindentlistitems}{\parshape 2 0cm \linewidth \listindent \dimexpr\linewidth-\listindent\relax}
+
+%%%
+\graphicspath{%
+  {figures/}%
+  {figures/ch-1/}%
+  {figures/sample/}%
+}%
+
+
+%% manual hyphenation rules
+\hyphenation{down-stream down-stream-tasks}

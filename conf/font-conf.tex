@@ -1,0 +1,24 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX root = ../diss.tex
+% !TEX spellcheck = en-US
+% !BIB program = biber
+
+% save conflicting degree command from ociamthesis
+\let\thesisdegree=\degree
+
+\usepackage[sb]{libertine} % or \usepackage[sb]{libertinus}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[varqu,varl]{zi4}% inconsolata for mono, not LibertineMono
+\usepackage[amsthm]{libertinust1math} % slanted integrals, by default
+\usepackage[scr=boondoxo,bb=boondox]{mathalpha} %Omit bb=boondox for default libertinus bb
+
+% make degree command from ociamthesis the main degree command, save degree in libertinust1math as \mathdegree
+\let\mathdegree=\degree
+\let\degree=\thesisdegree
+
+% Keine "Schusterjungen" (einzelne Zeilen am Ende einer Seite)
+\clubpenalty=10000
+% Keine "Hurenkinder" (einzelne Zeilen am Anfang einer Seite)
+\widowpenalty=10000
+\displaywidowpenalty=10000

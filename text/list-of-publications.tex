@@ -1,0 +1,27 @@
+% !TEX root = ../main.tex
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatexmk
+% !TEX spellcheck = en-US
+% !BIB program = biber
+ 
+%
+% List of publications 1) mine used for this dissertation, 2) all of mine or just the rest
+%
+% publications for dissertation accreditation
+\begin{refsection}
+  \nocite{*}
+  \printbibliography[%
+    heading=subbibliography,%
+    keyword={forthesis},%
+    title={Dissertation Related Publications}]%
+\end{refsection}
+
+% publications not for dissertation accreditation
+\begin{refsection}
+  \nocite{*}
+  \printbibliography[%
+    heading=subbibliography,%
+    keyword={notforthesis},%
+    title=Other Publications]%
+\end{refsection}
+
