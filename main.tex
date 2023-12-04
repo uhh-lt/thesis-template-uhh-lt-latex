@@ -8,14 +8,27 @@
 %% UHH LT THESIS TEMPLATE based on the OXFORD THESIS TEMPLATE
 
 %%%%% CHOOSE PAGE LAYOUT
-
+%%%%% Note:use options 
+%%%%%     bsc for a Bachelor's thesis, 
+%%%%%     msc for a Master's thesis, 
+%%%%%     phd for a PhD thesis, or dissertation
 % two-sided binding:
-% \documentclass[a4paper,twoside]{conf/uhhltthesis}
+% \documentclass[a4paper,twoside, phd]{conf/uhhltthesis}
 % one-sided binding:
-% \documentclass[a4paper]{conf/uhhltthesis}
+% \documentclass[a4paper, phd]{conf/uhhltthesis}
 % PDF output (ie equal margins, no extra blank pages, for online publication):
-\documentclass[hidelinks, a4paper, nobind]{conf/uhhltthesis}
+\documentclass[hidelinks, a4paper, nobind, phd]{conf/uhhltthesis}
 
+% Your full degree name.  (But remember that DPhils aren't "in" anything.  They're just DPhils.)
+% \degree{Doctor Philosophiae (Ph.D.)} % use with option phd
+% \degree{Doctor of Philosophy (DPhil)} % use with option phd
+\degree{Doctor rerum naturalium (Dr.\ rer.\ nat.)} % use with option phd
+% \degree{Master of Science (M.\ Sc.)} % use with option msc
+% \degree{Bachelor of Science (B.\ Sc.)} % use with option bsc
+% \degree{Bachelor of Arts (B.A.)} % use with option bsc
+% \degree{Superhero} % use if none of the options {bsc,msc,phd} are specified
+
+% outsource configurations
 \input{conf/thesisconf}
 
 \makeindex
@@ -25,7 +38,6 @@
 
 %%%%% CHOOSE YOUR LINE SPACING HERE
 % Zeilenabstand Einstellung
-% This is the official option.  Use it for your submission copy and library copy:
 %\setlength{\textbaselineskip}{22pt plus2pt}
 % This is closer spacing (about 1.5-spaced) that you might prefer for your personal copies:
 %\setlength{\textbaselineskip}{18pt plus2pt minus1pt}
@@ -168,7 +180,7 @@ The first kind of intellectual and artistic personality belongs to the hedgehogs
 \setlength{\baselineskip}{0pt}
 {%
 	\renewcommand*\MakeUppercase[1]{#1}%
-	\nocite{*}
+	% \nocite{*}
 	\printbibliography[heading=bibintoc,title={\bibtitle}]
 }%
 

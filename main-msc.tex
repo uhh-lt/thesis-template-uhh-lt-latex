@@ -1,0 +1,107 @@
+% !TEX root = main.tex
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = pdflatexmk
+% !TEX spellcheck = en-US
+% !BIB program = biber
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% UHH LT THESIS TEMPLATE based on the OXFORD THESIS TEMPLATE
+%% see main.tex for explanations and options
+
+%%%%% CHOOSE PAGE LAYOUT
+% PDF output (ie equal margins, no extra blank pages, for online publication):
+\documentclass[hidelinks, a4paper, nobind, msc]{conf/uhhltthesis}
+
+% Your full degree name.
+\degree{Master of Science (M.\ Sc.)}
+
+% outsource configurations
+\input{conf/thesisconf}
+
+\makeindex
+
+%%%%% THE ACTUAL DOCUMENT STARTS HERE
+\begin{document}
+
+%%%%% CHOOSE YOUR LINE SPACING HERE
+% Zeilenabstand Einstellung
+\setlength{\textbaselineskip}{\baselineskip}
+\setlength{\frontmatterbaselineskip}{\baselineskip}
+
+% Pages are roman numbered from here, though page numbers are invisible until ToC
+\begin{romanpages}
+
+% Title page is created here (includes affidavit)
+\maketitle
+
+%%%%% DEDICATION -- If you'd like, un-comment the following.
+\begin{dedication}
+  This work is dedicated to some important person(s) for some important reason
+\end{dedication}
+
+%%%%% ACKNOWLEDGEMENTS -- If you'd like, un-comment the following.
+\begin{acknowledgements}
+  \input{text/acknowledgements}
+\end{acknowledgements}
+
+%%%%% THEMED QUOTE -- If you'd like one, un-comment the following.
+\begin{themedquote}{Johann Wolfgang von Goethe, 1829}
+  Alles Gescheite ist schon gedacht worden.\\
+Man muss nur versuchen, es noch einmal zu denken. \\[\baselineskip]
+
+All intelligent thoughts have already been thought;\\
+what is necessary is only to try to think them again.
+\end{themedquote}
+
+%%%%% ABSTRACT -- Nothing to do here except comment out if you don't want it.
+\begin{abstract}
+  \input{text/abstract}
+\end{abstract}
+
+%%%%% ABSTRACT IN GERMAN
+\begin{germanabstract}
+  \input{text/zusammenfassung}
+\end{germanabstract}
+
+% This aligns the bottom of the text of each page.  It generally makes things look better.
+\flushbottom
+% This is where the whole-document ToC appears:
+{%
+  \setcounter{page}{0}%
+  %
+  \hypersetup{%
+	  linkcolor=black%
+  }%
+  \tableofcontents%
+}%
+% This aligns the bottom of the text of each page.  It generally makes things look better.
+\flushbottom
+
+
+% end roman page numbering
+\end{romanpages}
+
+% This aligns the bottom of the text of each page.  It generally makes things look better.
+\flushbottom
+
+%%%%% CHAPTERS
+\include{text/ch-1}
+\include{text/ch-2}
+
+%% APPENDICES %%
+% Starts lettered appendices, adds a heading in table of contents, and adds a
+%    page that just says "Appendices" to signal the end of your main text.
+\startappendices
+% Add or remove any appendices you'd like here:
+\include{text/appendix-1}
+
+%%%%% REFERENCES
+% use single-space References
+\setlength{\baselineskip}{0pt}
+{%
+	\renewcommand*\MakeUppercase[1]{#1}%
+	% \nocite{*}
+	\printbibliography[heading=bibintoc,title={\bibtitle}]
+}%
+
+\end{document}

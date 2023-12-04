@@ -7,7 +7,7 @@
 %
 %-------------------------- identification ---------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uhhltthesis}[2023/11/01 LT Hamburg University thesis class] % based on {ociamthesis}[2015/04/30 Oxford thesis class]
+\ProvidesClass{uhhltthesis}[2023/12/01 LT Hamburg University thesis class] % based on {ociamthesis}[2015/04/30 Oxford thesis class]
 %-------------------------- initial code -----------------------
 
 % JEM: Defaults to one-side, but passing 'twoside' should set everything up for that
@@ -16,7 +16,20 @@
 \newif\ifmc@nobind
 \mc@nobindfalse
 
+\newif\ifmasters % master?
+\newif\ifbachelors % bachelor?
+\newif\ifdissertation % phd?
+\newif\ifuhh % UHH thesis style
+% presets for ifs
+\mastersfalse
+\bachelorsfalse
+\dissertationfalse
+\uhhtrue
+
 \DeclareOption{nobind}{\mc@nobindtrue}
+\DeclareOption{msc}{\masterstrue}
+\DeclareOption{bsc}{\bachelorstrue}
+\DeclareOption{phd}{\dissertationtrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 
@@ -33,7 +46,7 @@
 \setlength{\frontmatterbaselineskip}{17pt plus1pt minus1pt}
 \setlength{\textbaselineskip}{22pt plus2pt}
 
-\newcommand{\submittedtext}{{A dissertation submitted for the degree of}}
+\newcommand{\submittedtext}{{A thesis submitted for the degree of}}
 \usepackage{varwidth}
 \newcommand{\originalitytext}{%
    \rule[-2mm]{1pt}{7mm}\hspace{-1pt}%
@@ -64,7 +77,7 @@
 \def\dateofsubmission#1{\gdef\@dateofsubmission{#1}}
 % Your date of defending
 \def\dateofdisputation#1{\gdef\@dateofdisputation{#1}}
-% Your type of submission, i.e. Master's, Bachelor's, ...
+% Your type of submission, i.e. Dissertation, Master's Thesis, Bachelor's Thesis, Thesis, ...
 \def\typeofthesis#1{\gdef\@typeofthesis{#1}}
 % Your supervisors name
 \def\supervisorname#1{\gdef\@supervisorname{#1}}
@@ -79,22 +92,30 @@
 % Your title plain w/o linebreaks
 \def\titleplain#1{\gdef\@titleplain{#1}}
 
-% new ifs
-\newif\ifmasterssubmission % master?
-\newif\ifbachelorssubmission % bachelor?
-\newif\ifdissertation % phd?
-\newif\ifuhh % UHH thesis style
-% presets for ifs
-\masterssubmissionfalse
-\bachelorssubmissionfalse
-\dissertationtrue
-\uhhtrue
+\newcommand{\typeofmonograph}{{T~~H~~E~~S~~I~~S}}
+\typeofthesis{Thesis}
+
+\ifbachelors
+\renewcommand{\typeofmonograph}{{B~A~C~H~E~L~O~R~T~H~E~S~I~S}}
+% Your type of submission, i.e. Dissertation, Master's Thesis, Bachelor's Thesis, Thesis, ...
+\typeofthesis{Bachelor's Thesis}
+\else {} \fi
+
+\ifmasters 
+\renewcommand{\typeofmonograph}{{M~A~S~T~E~R~T~H~E~S~I~S}}
+\typeofthesis{Masters's Thesis}
+\else {} \fi
+
+\ifdissertation 
+\renewcommand{\typeofmonograph}{{D~I~S~S~E~R~T~A~T~I~O~N}}
+\typeofthesis{Dissertation}
+\else {} \fi
+
 
 %
 % CRESTS
 %
 \def\crest{\@universitylogo}
-
 
 %
 % Define text area of page and margin offsets
@@ -242,7 +263,7 @@
   \par
   \vspace*{35mm}
   \begin{center}
-    {\Large { {\textcolor{red}{\bf \sffamily D~I~S~S~E~R~T~A~T~I~O~N}}} \par}
+    {\Large { {\textcolor{red}{\bf \sffamily \typeofmonograph}}} \par}
     \vspace*{35mm}
     { \LARGE {\bfseries {\@title}} \par}
     \vspace*{35mm}
@@ -275,7 +296,9 @@
     \noindent
     \begin{tabular*}{\linewidth}{@{}l@{~}l@{}}%
       Date of Submission:  & \@dateofsubmission \\%
-      Date of Disputation: & \@dateofdisputation \\%
+      \ifdissertation
+        Date of Disputation: & \@dateofdisputation \\%
+      \else {} \fi
       & \\
       \multicolumn{2}{@{}l@{}}{Supervisor: \@supervisorname} \\%
     \end{tabular*}\\[\baselineskip]
@@ -302,11 +325,11 @@
     \null\hfill { \Huge Affidavit\\ }%
     \vspace*{30pt}%
     %
-    \par\noindent Hiermit erkläre ich an Eides statt, dass ich die vorliegende Dissertationsschrift selbst verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe.
+    \par\noindent Hiermit erkläre ich an Eides statt, dass ich die vorliegende Arbeit selbst verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe.
     %
     \vspace*{2em}%
     %
-    \par\noindent I hereby declare upon oath that I have written the present dissertation independently and have not used further resources and aids than those stated in the dissertation.
+    \par\noindent I hereby declare upon oath that I have written the present thesis independently and have not used further resources and aids than those stated in the dissertation.
     %
     \vspace*{6em}%
     %
