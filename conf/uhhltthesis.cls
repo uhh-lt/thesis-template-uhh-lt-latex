@@ -7,8 +7,11 @@
 %
 %-------------------------- identification ---------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uhhltthesis}[2023/12/01 LT Hamburg University thesis class] % based on {ociamthesis}[2015/04/30 Oxford thesis class]
+\ProvidesClass{conf/uhhltthesis}[2023/12/01 LT Hamburg University thesis class] % based on {ociamthesis}[2015/04/30 Oxford thesis class]
 %-------------------------- initial code -----------------------
+
+% Set encoding
+\usepackage[utf8]{inputenc}
 
 % JEM: Defaults to one-side, but passing 'twoside' should set everything up for that
 \LoadClass[openright,12pt]{report}
