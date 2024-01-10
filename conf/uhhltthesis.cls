@@ -23,16 +23,19 @@
 \newif\ifbachelors % bachelor?
 \newif\ifdissertation % phd?
 \newif\ifuhh % UHH thesis style
+\newif\ifdebugbibkeys % debug bib keys?
 % presets for ifs
 \mastersfalse
 \bachelorsfalse
 \dissertationfalse
 \uhhtrue
+\debugbibkeysfalse
 
 \DeclareOption{nobind}{\mc@nobindtrue}
 \DeclareOption{msc}{\masterstrue}
 \DeclareOption{bsc}{\bachelorstrue}
 \DeclareOption{phd}{\dissertationtrue}
+\DeclareOption{debugbibkeys}{\debugbibkeystrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 
@@ -76,6 +79,10 @@
 \def\address#1{\gdef\@address{#1}}
 % The logo of your University (eg {\includegraphics{figures/beltcrest.pdf}})
 \def\universitylogo#1{\gdef\@universitylogo{#1}}
+% The logo of your faculty
+\def\facultylogo#1{\gdef\@facultylogo{#1}}
+% The logo of your researchgroup
+\def\grouplogo#1{\gdef\@grouplogo{#1}}
 % Your date of submission
 \def\dateofsubmission#1{\gdef\@dateofsubmission{#1}}
 % Your date of defending
@@ -94,6 +101,34 @@
 \def\researchgroup#1{\gdef\@researchgroup{#1}}
 % Your title plain w/o linebreaks
 \def\titleplain#1{\gdef\@titleplain{#1}}
+
+%% DEFAULTS
+\university{Universit\"a{}t Hamburg}%
+\address{Hamburg, Germany}%
+\faculty{Faculty of Mathematics, Informatics and Natural Sciences}
+\department{Department of Informatics}
+\researchgroup{Language Technology}
+
+\universitylogo{
+  \begin{minipage}[b]{62mm}
+    \noindent
+    \includegraphics[width=\textwidth,clip,trim=1.95cm 2.5cm 1.95cm 2.5cm]{figures/up-uhh-logo-u-2010-u-farbe-u-cmyk-modus}
+  \end{minipage}
+}
+
+\facultylogo{
+  \begin{minipage}[b]{62mm}
+    \noindent
+    \includegraphics[width=\textwidth]{figures/uhh-min-faculty-de}
+  \end{minipage}
+}
+
+\grouplogo{
+  \begin{minipage}[b]{11mm}
+    \noindent
+    \includegraphics[width=\textwidth]{figures/uhh-lt-logo}
+  \end{minipage}
+}
 
 \newcommand{\typeofmonograph}{{T~~H~~E~~S~~I~~S}}
 \typeofthesis{Thesis}
@@ -249,20 +284,11 @@
   \renewcommand{\footnoterule}{\relax}
   \thispagestyle{empty}\pagestyle{empty}
   \noindent
-  \begin{minipage}[b]{62mm}
-    \noindent
-    \includegraphics[width=\textwidth,clip,trim=1.95cm 2.5cm 1.95cm 2.5cm]{figures/up-uhh-logo-u-2010-u-farbe-u-cmyk-modus}
-  \end{minipage}
+  \@universitylogo
   \hfill
-  \begin{minipage}[b]{62mm}
-    \noindent
-    \includegraphics[width=\textwidth]{figures/uhh-min-faculty-de}
-  \end{minipage}
+  \@facultylogo
   \hfill
-  \begin{minipage}[b]{11mm}
-    \noindent
-    \includegraphics[width=\textwidth]{figures/uhh-lt-logo}
-  \end{minipage}
+  \@grouplogo
   \par
   \vspace*{35mm}
   \begin{center}
@@ -656,17 +682,20 @@
 \let\oldcite\cite
 \let\cite\citep
 
-%% DEBUG BIB KEYS FOR DRAFT, comment for final version, 
-%\DeclareFieldFormat{entrykey}{%
-%  \textcolor{orange}{%
-%    \mkbibbrackets{#1}}}
-%%
-%\renewbibmacro*{finentry}{%
-%  \setunit{\finentrypunct\addspace}%
-%  \printfield{entrykey}%
-%  \renewcommand\finentrypunct{}%
-%  \finentry
-%}
+%% DEBUG BIB KEYS FOR DRAFT, deactivate for final version!
+\ifdebugbibkeys
+\DeclareFieldFormat{entrykey}{%
+ \textcolor{orange}{%
+   \mkbibbrackets{#1}}}
+%
+\renewbibmacro*{finentry}{%
+ \setunit{\finentrypunct\addspace}%
+ \printfield{entrykey}%
+ \renewcommand\finentrypunct{}%
+ \finentry
+}
+\else {} \fi
+
 
 % chapter title
 \newcommand*{\bibtitle}{References}

@@ -38,28 +38,33 @@
 % authorname
 \newcommand{\authorname}{Allan M. Turing}
 
+% specifiy Date of submission
 \dateofsubmission{ 1.1.2099 }
+
 % specifiy Date of disputation if necessary (usually not necessary for bachelor or master degree)
 \dateofdisputation{ 2.1.2099 } 
 
+% who's your supervisor?
 \supervisorname{John von Neumann, Universität Hamburg}
 
+% who's part of your comittee?
 \comittee{%
   1\textsuperscript{st} Examiner: Prof.\ Dr.\ Chris Biemann, Universität Hamburg \\%
   2\textsuperscript{nd} Examiner: Dr.\ Konrad Zuse, Universität Hamburg \\%
   ...
 }%
-\university{Universit\"a{}t Hamburg}%
-\address{Hamburg, Germany}%
-\faculty{Faculty of Mathematics, Informatics and Natural Sciences}
-\department{Department of Informatics}
+%% OVERRIDE defaults:
+%\university{Universit\"a{}t Hamburg}%
+%\address{Hamburg, Germany}%
+%\faculty{Faculty of Mathematics, Informatics and Natural Sciences}
+%\department{Department of Informatics}
 \researchgroup{Language Technology}
-\universitylogo{%
- \begin{minipage}{\textwidth}%
-  \centering%
-  \includegraphics[width=.7\textwidth]{figures/up-uhh-logo-u-2010-u-farbe-u-cmyk-modus}%
- \end{minipage}%
-}%
+\grouplogo{
+  \begin{minipage}[b]{11mm}
+    \noindent
+    \includegraphics[width=\textwidth]{figures/uhh-lt-logo}
+  \end{minipage}
+}
 
 % set author
 \author{\authorname}
