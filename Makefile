@@ -19,7 +19,7 @@ main-bsc:
 	latexmk -pdf -bibtex main-bsc.tex
 
 main:
-	@echo compiling bsc pdf
+	@echo compiling main pdf
 	latexmk -pdf -bibtex main.tex
 
 authors:
