@@ -13,6 +13,8 @@ Use this template to produce a standard thesis that meets the University
 requirements for DPhil submission, and should be passable for other thesis-based
 degrees (e.g. MPhil) as well.
 
+---
+
 In modern LaTeX implementations, you should be able to open main.tex with
 your favorite editor and compile it.  By default, this template uses biber/BibLaTeX
 for references / citations, so you may have to make the appropriate changes in
@@ -24,10 +26,22 @@ A non latexmk typical manual full build should be:
 3. `$> pdflatex main.tex`
 4. `$> pdflatex main.tex`
 
+---
+
 Using the Makefile, you can run the default target to build pdf files from all .tex files
 in the root directory:
 
 `$> make`
+
+or run
+
+`$> make bsc`
+`$> make msc`
+`$> make main`
+
+to build either 'main-bsc.tex', 'main-msc.tex', or 'main.tex'. 
+
+---
 
 Run 
 
@@ -40,6 +54,8 @@ or
 to clean temporary output files. The target 'cleanall' removes additionally the 
 generated pdf files.
 
+---
+
 Run 
 
 `$> make authors`
@@ -50,6 +66,8 @@ or
 
 to print a list of authors extracted from your *.bib files in the ./bib/ directory.
 The target 'authors-first' extracts a list of first authors.
+
+---
 
 There should be subfolders called 'text' and 'figures'.  Keep all your work in these
 folders.  This will make your life much simpler when you need to go about deleting
