@@ -1,11 +1,13 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Universität Hamburg LT Thesis Template %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Based on the %%% OXFORD THESIS TEMPLATE %%%
-% Originally by Keith A. Gillow (gillow@maths.ox.ac.uk), 1997
-% Modified by Sam Evans (sam@samuelevansresearch.org), 2007
-% Modified by John McManigle (mcmanigle@gmail.com), 2015
-% Modified by Steffen Remus (steremus@gmail.com), 2023
+
+---
+# UniversitÃ¤t Hamburg LT Thesis Template
+---
+
+- Based on the %%% OXFORD THESIS TEMPLATE %%%
+- Originally by Keith A. Gillow (gillow@maths.ox.ac.uk), 1997
+- Modified by Sam Evans (sam@samuelevansresearch.org), 2007
+- Modified by John McManigle (mcmanigle@gmail.com), 2015
+- Modified by Steffen Remus (steremus@gmail.com), 2023-2024
 
 Use this template to produce a standard thesis that meets the University
 requirements for DPhil submission, and should be passable for other thesis-based
@@ -17,34 +19,34 @@ for references / citations, so you may have to make the appropriate changes in
 your build preferences. Make a full build using `latexmk` by simply typing `latexmk`
 (see latexmkrc for reference). Run 'latexmk -C' to clean temporary output files. 
 A non latexmk typical manual full build should be:
-1. $> pdflatex main.tex
-2. $> biber main
-3. $> pdflatex main.tex
-4. $> pdflatex main.tex
+1. `$> pdflatex main.tex`
+2. `$> biber main`
+3. `$> pdflatex main.tex`
+4. `$> pdflatex main.tex`
 
 Using the Makefile, you can run the default target to build pdf files from all .tex files
 in the root directory:
 
-$> make 
+`$> make`
 
 Run 
 
-$> make clean
+`$> make clean`
 
 or
 
-$> make cleanall
+`$> make cleanall`
 
 to clean temporary output files. The target 'cleanall' removes additionally the 
 generated pdf files.
 
 Run 
 
-$> make authors
+`$> make authors`
 
 or
 
-$> make authors-first
+`$> make authors-first`
 
 to print a list of authors extracted from your *.bib files in the ./bib/ directory.
 The target 'authors-first' extracts a list of first authors.
@@ -63,4 +65,4 @@ lots of answers to common LaTeX problems.
 High-level details on what this template provides can be found at:
 http://www.oxfordechoes.com/oxford-thesis-template/
 https://github.com/mcmanigle/OxThesis
-https://github.com/remstef/uhhltthesis
+https://github.com/uhh-lt/uhhltthesis
