@@ -18,9 +18,27 @@ degrees (e.g. MPhil) as well.
 In modern LaTeX implementations, you should be able to open main.tex with
 your favorite editor and compile it.  By default, this template uses biber/BibLaTeX
 for references / citations, so you may have to make the appropriate changes in
-your build preferences. Make a full build using `latexmk` by simply typing `latexmk`
-(see latexmkrc for reference). Run 'latexmk -C' to clean temporary output files. 
-A non latexmk typical manual full build should be:
+your build preferences. 
+
+Make a full build using *latexmk* by simply typing 
+
+`$> latexmk` 
+
+or more explicit:
+
+`$> latexmk -pdf -bibtex` 
+
+(see latexmkrc for reference). Run 
+
+`$> latexmk -c` 
+ 
+ or more explicit:
+
+ `$> latexmk -pdf -bibtex -c`
+
+to clean temporary output files. Use a capital `-C` to clean generated pdf files too.
+
+A non latexmk typical manual full build is:
 1. `$> pdflatex main.tex`
 2. `$> biber main`
 3. `$> pdflatex main.tex`
