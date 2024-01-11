@@ -36,7 +36,9 @@ in the root directory:
 or run
 
 `$> make bsc`
+
 `$> make msc`
+
 `$> make main`
 
 to build either 'main-bsc.tex', 'main-msc.tex', or 'main.tex'. 
