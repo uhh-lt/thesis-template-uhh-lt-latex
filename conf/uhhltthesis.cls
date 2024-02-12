@@ -682,6 +682,29 @@
 \let\oldcite\cite
 \let\cite\citep
 
+\newbibmacro{string+doiurlisbn}[1]{%
+  \iffieldundef{doi}{%
+    \iffieldundef{url}{%
+      \iffieldundef{isbn}{%
+        \iffieldundef{issn}{%
+          #1%
+        }{%
+          \href{https://search.worldcat.org/search?q=n2:\thefield{issn}}{#1}%
+        }%
+      }{%
+        \href{https://search.worldcat.org/search?q=bn:\thefield{isbn}}{#1}%
+      }%
+    }{%
+      \href{\thefield{url}}{#1}%
+    }%
+  }{%
+    \href{http://dx.doi.org/\thefield{doi}}{#1}%
+  }%
+}
+\DeclareFieldFormat{title}{\usebibmacro{string+doiurlisbn}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article,incollection]{title}%
+    {\usebibmacro{string+doiurlisbn}{\mkbibquote{#1}}}
+
 %% DEBUG BIB KEYS FOR DRAFT, deactivate for final version!
 \ifdebugbibkeys
 \DeclareFieldFormat{entrykey}{%
