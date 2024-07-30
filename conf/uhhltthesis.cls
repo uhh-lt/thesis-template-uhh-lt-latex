@@ -354,11 +354,17 @@
     \null\hfill { \Huge Affidavit\\ }%
     \vspace*{30pt}%
     %
-    \par\noindent Hiermit erkläre ich an Eides statt, dass ich die vorliegende Arbeit selbst verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe.
-    %
+    \par\noindent Hiermit versichere ich an Eides statt, dass ich die vorliegende Arbeit im Masterstudiengang Informatik selbstständig verfasst und keine anderen als die angegebenen Hilfsmittel – insbesondere keine im Quellenverzeichnis nicht benannten Internet-Quellen – benutzt habe.
+    Alle Stellen, die wörtlich oder sinngemäß aus Veröffentlichungen entnommen wurden, sind als solche kenntlich gemacht.
+    Ich versichere weiterhin, dass ich die Arbeit vorher nicht in einem anderen Prüfungsverfahren eingereicht habe.
+    
     \vspace*{2em}%
     %
-    \par\noindent I hereby declare upon oath that I have written the present thesis independently and have not used further resources and aids than those stated in the dissertation.
+    \par\noindent I hereby declare in lieu of an oath that I have written this thesis for the Master's degree programme in Computer Science independently and have not used any aids other than those specified - in particular no Internet sources not named in the list of sources.
+    All passages taken verbatim or in spirit from publications are labelled as such.
+    I further certify that I have not previously submitted the thesis in another examination procedure.
+
+Translated with DeepL.com (free version)
     %
     \vspace*{6em}%
     %
@@ -701,9 +707,9 @@
     \href{http://dx.doi.org/\thefield{doi}}{#1}%
   }%
 }
-\DeclareFieldFormat{title}{\usebibmacro{string+doiurlisbn}{\mkbibemph{#1}}}
+\DeclareFieldFormat{title}{\usebibmacro{string+doiurlisbn}{#1}}
 \DeclareFieldFormat[article,incollection]{title}%
-    {\usebibmacro{string+doiurlisbn}{\mkbibquote{#1}}}
+    {\usebibmacro{string+doiurlisbn}{#1}}
 
 %% DEBUG BIB KEYS FOR DRAFT, deactivate for final version!
 \ifdebugbibkeys
