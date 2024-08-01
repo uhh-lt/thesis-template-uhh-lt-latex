@@ -89,8 +89,8 @@
 \def\dateofdisputation#1{\gdef\@dateofdisputation{#1}}
 % Your type of submission, i.e. Dissertation, Master's Thesis, Bachelor's Thesis, Thesis, ...
 \def\typeofthesis#1{\gdef\@typeofthesis{#1}}
-% Your supervisors name
-\def\supervisorname#1{\gdef\@supervisorname{#1}}
+% Your supervisor(s)
+\def\supervisonby#1{\gdef\@supervisonby{#1}}
 % Your entire committe e.g. reviewer 1, reviewer 2, ...
 \def\comittee#1{\gdef\@comittee{#1}}
 % Your faculty, eg. Faculty of Mathematics, Informatics and Natural Sciences
@@ -101,6 +101,9 @@
 \def\researchgroup#1{\gdef\@researchgroup{#1}}
 % Your title plain w/o linebreaks
 \def\titleplain#1{\gdef\@titleplain{#1}}
+% Your declaration of academic honesty
+\def\affidavit#1{\gdef\@affidavit{#1}}
+
 
 %% DEFAULTS
 \university{Universit\"a{}t Hamburg}%
@@ -328,12 +331,15 @@
       \ifdissertation
         Date of Disputation: & \@dateofdisputation \\%
       \else {} \fi
-      & \\
-      \multicolumn{2}{@{}l@{}}{Supervisor: \@supervisorname} \\%
-    \end{tabular*}\\[\baselineskip]
+      & \\%
+    \end{tabular*}
     %
+    \par\noindent Supervisor(s): \par%
     \noindent
-    Committee: \par%
+    \@supervisonby
+    \vspace{\baselineskip}
+    %
+    \par\noindent Committee: \par%
     \noindent
     \@comittee
     %
@@ -354,17 +360,7 @@
     \null\hfill { \Huge Affidavit\\ }%
     \vspace*{30pt}%
     %
-    \par\noindent Hiermit versichere ich an Eides statt, dass ich die vorliegende Arbeit im Masterstudiengang Informatik selbstständig verfasst und keine anderen als die angegebenen Hilfsmittel – insbesondere keine im Quellenverzeichnis nicht benannten Internet-Quellen – benutzt habe.
-    Alle Stellen, die wörtlich oder sinngemäß aus Veröffentlichungen entnommen wurden, sind als solche kenntlich gemacht.
-    Ich versichere weiterhin, dass ich die Arbeit vorher nicht in einem anderen Prüfungsverfahren eingereicht habe.
-    
-    \vspace*{2em}%
-    %
-    \par\noindent I hereby declare in lieu of an oath that I have written this thesis for the Master's degree programme in Computer Science independently and have not used any aids other than those specified - in particular no Internet sources not named in the list of sources.
-    All passages taken verbatim or in spirit from publications are labelled as such.
-    I further certify that I have not previously submitted the thesis in another examination procedure.
-
-Translated with DeepL.com (free version)
+    \@affidavit
     %
     \vspace*{6em}%
     %
