@@ -103,6 +103,10 @@
 \def\titleplain#1{\gdef\@titleplain{#1}}
 % Your declaration of academic honesty
 \def\affidavit#1{\gdef\@affidavit{#1}}
+% Your field of study
+\def\fieldofstudy#1{\gdef\@fieldofstudy{#1}}
+% Your matriculation number
+\def\matriculationno#1{\gdef\@matriculationno{#1}}
 
 
 %% DEFAULTS
@@ -111,6 +115,8 @@
 \faculty{}
 \department{}
 \researchgroup{}
+\fieldofstudy{}
+\matriculationno{}
 
 \universitylogo{
   \includegraphics[width=\textwidth,clip,trim=1.95cm 2.5cm 1.95cm 2.5cm]{figures/up-uhh-logo-u-2010-u-farbe-u-cmyk-modus}
@@ -144,16 +150,34 @@
 
 \newcommand{\typeofmonograph}{{T~~H~~E~~S~~I~~S}}
 \typeofthesis{Thesis}
+\newcommand{\titlepagerequirements}{}
+\def\titlesseppacing{35mm}%
 
 \ifbachelors
 \renewcommand{\typeofmonograph}{{B~A~C~H~E~L~O~R~T~H~E~S~I~S}}
 % Your type of submission, i.e. Dissertation, Master's Thesis, Bachelor's Thesis, Thesis, ...
 \typeofthesis{Bachelor's Thesis}
+\renewcommand{\titlepagerequirements}{%
+\vspace*{1ex} %
+Field of Study: \@fieldofstudy \par %
+Matriculation No.: \@matriculationno \par %
+\@comittee %
+\vspace*{1ex}%
+}%
+\def\titlesseppacing{30mm}%
 \else {} \fi
 
 \ifmasters 
 \renewcommand{\typeofmonograph}{{M~A~S~T~E~R~T~H~E~S~I~S}}
 \typeofthesis{Masters's Thesis}
+\renewcommand{\titlepagerequirements}{%
+\vspace*{1ex} %
+Field of Study: \@fieldofstudy \par %
+Matriculation No.: \@matriculationno \par %
+\@comittee %
+\vspace*{1ex}%
+}%
+\def\titlesseppacing{30mm}%
 \else {} \fi
 
 \ifdissertation 
@@ -302,18 +326,19 @@
   \hfill
   \grouplogobox
   \par
-  \vspace*{35mm}
+  \vspace*{\titlesseppacing}
   \begin{center}
     {\Large { {\textcolor{red}{\bf \sffamily \typeofmonograph}}} \par}
-    \vspace*{35mm}
+    \vspace*{\titlesseppacing}
     { \LARGE {\bfseries {\@title}} \par}
-    \vspace*{35mm}
+    \vspace*{\titlesseppacing}
     {{\Large \@author} \par}
     {\large \vspace*{1ex} 
+      {{\titlepagerequirements}}
       {{\@researchgroup \par \@department \par \@faculty} \par}
       \vspace*{1ex}
       {{\@university\\\@address} \par}
-      \vspace*{35mm}
+      \vspace*{\titlesseppacing}
       {{\submittedtext} \par}
       \vspace*{1ex}
       {\it {\@degree} \par}
