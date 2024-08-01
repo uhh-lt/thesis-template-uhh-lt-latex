@@ -164,7 +164,7 @@ Matriculation No.: \@matriculationno \par %
 \@comittee %
 \vspace*{1ex}%
 }%
-\def\titlesseppacing{30mm}%
+\def\titlesseppacing{25mm}%
 \else {} \fi
 
 \ifmasters 
@@ -177,7 +177,7 @@ Matriculation No.: \@matriculationno \par %
 \@comittee %
 \vspace*{1ex}%
 }%
-\def\titlesseppacing{30mm}%
+\def\titlesseppacing{25mm}%
 \else {} \fi
 
 \ifdissertation 
