@@ -108,28 +108,37 @@
 %% DEFAULTS
 \university{Universit\"a{}t Hamburg}%
 \address{Hamburg, Germany}%
-\faculty{Faculty of Mathematics, Informatics and Natural Sciences}
-\department{Department of Informatics}
-\researchgroup{Language Technology}
+\faculty{}
+\department{}
+\researchgroup{}
 
 \universitylogo{
+  \includegraphics[width=\textwidth,clip,trim=1.95cm 2.5cm 1.95cm 2.5cm]{figures/up-uhh-logo-u-2010-u-farbe-u-cmyk-modus}
+}
+\newcommand{\universitylogobox}{
   \begin{minipage}[b]{62mm}
     \noindent
-    \includegraphics[width=\textwidth,clip,trim=1.95cm 2.5cm 1.95cm 2.5cm]{figures/up-uhh-logo-u-2010-u-farbe-u-cmyk-modus}
+    \@universitylogo
   \end{minipage}
 }
 
 \facultylogo{
+  % \includegraphics[width=\textwidth]{figures/uhh-min-faculty-de}
+}
+\newcommand{\facultylogobox}{
   \begin{minipage}[b]{62mm}
     \noindent
-    \includegraphics[width=\textwidth]{figures/uhh-min-faculty-de}
+    \@facultylogo
   \end{minipage}
 }
 
 \grouplogo{
+  % \includegraphics[width=\textwidth]{figures/uhh-lt-logo}
+}
+\newcommand{\grouplogobox}{
   \begin{minipage}[b]{11mm}
     \noindent
-    \includegraphics[width=\textwidth]{figures/uhh-lt-logo}
+    \@grouplogo
   \end{minipage}
 }
 
@@ -287,11 +296,11 @@
   \renewcommand{\footnoterule}{\relax}
   \thispagestyle{empty}\pagestyle{empty}
   \noindent
-  \@universitylogo
+  \universitylogobox
   \hfill
-  \@facultylogo
+  \facultylogobox
   \hfill
-  \@grouplogo
+  \grouplogobox
   \par
   \vspace*{35mm}
   \begin{center}
